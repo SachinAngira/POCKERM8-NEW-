@@ -8,8 +8,10 @@ public class TabGroup : MonoBehaviour
     public List<TabButton> tabButtons;
     public Sprite TabActive;
     public Sprite Tabideal;
+    public Image target;
     public TabButton selectedtab;
     public List<GameObject> swap;
+   public bool pp = false;
     public void Subscribe(TabButton buton)
     {
         if (buton == null)
@@ -37,6 +39,10 @@ public class TabGroup : MonoBehaviour
         selectedtab = buton;
         ResetTabs();
         buton.bg.sprite = TabActive;
+        if (pp)
+        {
+        target.sprite = buton.aimage;
+        }
         int index = buton.transform.GetSiblingIndex();
         for (int i = 0; i < swap.Count; i++)
         {

@@ -2,21 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class sCENE1 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Slider slider;
+    public float ToMultiply;
+    public Text text;
+    int i;
     void Start()
     {
-        StartCoroutine(Load());
-       
+
     }
 
-    IEnumerator Load()
+    // Update is called once per frame
+    void Update()
+    {
+
+         i = (int)(slider.value * ToMultiply);
+
+        //   ToMultiply *= slider.value;
+        text.text = i.ToString();
+    }
+    void FixedUpdate()
     {
        
-       
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
+        if (i == 100)
+        {
+             SceneManager.LoadScene(1);
+        }
+        slider.value += .01f;
     }
-}
+ //   IEnumerator Load()
+    
+
+       
+           
+         
+       // yield return new WaitForSeconds(2f);
+
+    }
+

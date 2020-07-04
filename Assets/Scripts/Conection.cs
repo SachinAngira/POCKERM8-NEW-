@@ -7,6 +7,7 @@ public class Conection : MonoBehaviour
 {
   public  string Username;
     public string Password;
+    public string URL;
     void Start()
     {
         
@@ -20,10 +21,11 @@ public class Conection : MonoBehaviour
     {
         
         WWWForm form = new WWWForm();
+        form.AddField("username", Username);
         form.AddField("password", Password);
-       form.AddField("username", Username);
+       
 
-       using (UnityWebRequest www = UnityWebRequest.Post("http://ec2-3-17-135-24.us-east-2.compute.amazonaws.com/api/auth/login", "{ \"password\": \"123456\", \"username\": \"msddirtbags@gmail.com\"}"))
+       using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
             yield return www.SendWebRequest();
 

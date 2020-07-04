@@ -8,6 +8,7 @@ public class TabButton : MonoBehaviour,IPointerEnterHandler,IPointerClickHandler
 {
     public TabGroup tabGroup;
     public Image bg;
+    public Sprite aimage;
     void Start()
     {
         bg = GetComponent<Image>();
